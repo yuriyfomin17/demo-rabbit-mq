@@ -7,7 +7,7 @@ import com.rabbitmq.client.DeliverCallback;
 
 import java.nio.charset.StandardCharsets;
 
-public class ReceiverThird {
+public class ReceiverCharacter {
     private static final String EXCHANGE_NAME = "TOPIC_EXCHANGE";
     private static final String QUEUE_NAME = "TOPIC_LAZY";
     public static void main(String[] args) throws Exception {

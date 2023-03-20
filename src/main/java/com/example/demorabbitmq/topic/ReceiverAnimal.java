@@ -7,9 +7,9 @@ import com.rabbitmq.client.DeliverCallback;
 
 import java.nio.charset.StandardCharsets;
 
-public class ReceiverSecond {
+public class ReceiverAnimal {
     private static final String EXCHANGE_NAME = "TOPIC_EXCHANGE";
-    private static final String QUEUE_NAME = "TOPIC_WHITE";
+    private static final String QUEUE_NAME = "TOPIC_CAT";
 
     public static void main(String[] args) throws Exception {
         ConnectionFactory connectionFactory = new ConnectionFactory();
@@ -18,7 +18,7 @@ public class ReceiverSecond {
 
         channel.exchangeDeclare(EXCHANGE_NAME, "topic");
         channel.queueDeclare(QUEUE_NAME, true, false, false, null);
-        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "*.WHITE.*");
+        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "CAT.*.*");
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
             try {
